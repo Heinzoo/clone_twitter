@@ -1,14 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Tweets</h1>
+<form class="d-flex" role="search">
+  <div class="input-group me-3">
+    <input class="form-control rounded-start-pill" type="search" placeholder="Buscar Tweet" aria-label="Search" aria-describedby="basic-addon1">
+    <span class="input-group-text rounded-end-pill" id="basic-addon1"><i class="bi bi-search"></i></span>
+  </div>
+  <%= link_to "Twittear", new_tweet_path, class: "btn btn-info rounded-pill fw-semibold text-white" %>
+</form>  
 
 <div id="tweets">
   <% @tweets.each do |tweet| %>
     <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New tweet", new_tweet_path %>
