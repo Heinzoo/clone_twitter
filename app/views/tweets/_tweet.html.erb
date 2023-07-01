@@ -8,7 +8,9 @@
         <span class="username">
           @<%= tweet.username %>
         </span>
-        <span class="tweet-time">- Jul 18</span>
+        <span class="tweet-time">
+          - <%=Time.at(rand * Time.now.to_i).strftime('%b %d')%>
+        </span>
       </div>
       <a>
         <img class="tweet-card-avatar" src="https://tr.rbxcdn.com/5b8c7219638ce7d8073bee13141e21f6/420/420/Hat/Png" alt="">
@@ -16,8 +18,11 @@
       <div class="tweet-text">
         <p class="" lang="es" data-aria-label-part="0">
           <%= tweet.description %>
-          <a href="" class="twitter-hashtag"><s>#</s><b>firefox</b></a>
-          <a href="" class="twitter-hashtag"><s>#</s><b>comunidad</b></a>
+          <% for i in 0..rand(5) do %>
+            <a href="#" class="twitter-hashtag text-decoration-none">
+              <b>#<%=Faker::Lorem.word%></b>
+            </a>
+          <% end %>
         </p>
         <% if action_name == 'index' %>
           <span class="float-end fs-5">
@@ -27,7 +32,7 @@
           </span>
         <% else %>
           <span class="float-end fs-5 mx-1">
-            <%= link_to @tweet, method: :delete do %>
+            <%= button_to @tweet, method: :delete, style: "all: unset; cursor: pointer" do %>
               <i class="bi bi-trash-fill text-danger"></i>
             <% end %>
           </span>
@@ -45,16 +50,20 @@
       </div>
       <div class="tweet-footer">
         <a class="tweet-footer-btn text-decoration-none">
-          <i class="octicon octicon-comment" aria-hidden="true"></i><span> 18</span>
+          <i class="bi bi-chat-left"></i>
+          <span> <%=rand(10..100)%></span>
         </a>
         <a class="tweet-footer-btn text-decoration-none">
-          <i class="octicon octicon-sync" aria-hidden="true"></i><span> 64</span>
+          <i class="bi bi-arrow-repeat"></i>
+          <span> <%=rand(10..100)%></span>
         </a>
         <a class="tweet-footer-btn text-decoration-none">
-          <i class="octicon octicon-heart" aria-hidden="true"></i><span> 202</span>
+          <i class="bi bi-heart-fill text-danger"></i>
+          <span> <%=rand(10..100)%></span>
         </a>
         <a class="tweet-footer-btn text-decoration-none">
-          <i class="octicon octicon-mail" aria-hidden="true"></i><span> 155</span>
+          <i class="bi bi-envelope"></i>
+          <span> <%=rand(10..100)%></span>
         </a>
       </div>
     </div> 

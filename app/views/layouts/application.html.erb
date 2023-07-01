@@ -53,52 +53,51 @@
       </div>
     </nav>
     <div class="main-container">
-      <!-- Profile background large image -->
-      <!-- <div class="row profile-background" style="border: solid 1px black;">
-        <div class="container" style="border: solid 1px black;">
-          <div class="avatar-container" style="border: solid 1px black;">
-            <div class="avatar" style="border: solid 1px black;">
-            </div>
-          </div>
-        </div>
-      </div> -->
       <div class="container main-content">
         <div class="row">
           <div class="col profile-col">
             <!-- Left column -->
-            <!-- <div class="avatar mt-3" style="border: solid 1px black;">
-            </div> -->
             <img class="img-fluid mt-3" src="https://tr.rbxcdn.com/5b8c7219638ce7d8073bee13141e21f6/420/420/Hat/Png" alt="">
             <div class="profile-header">
               <!-- Header information -->
-              <h3 class="profile-fullname"><a>Jon Vadillo<a></h3>
-              <h2 class="profile-element"><a>@jonvadillo</a></h2>
-              <a class="profile-element profile-website" hrerf=""><i class="octicon octicon-link"></i>&nbsp;jonvadillo.com</a>
-              <a class="profile-element profile-website" hrerf=""><i class="octicon octicon-location"></i>&nbsp;Vitoria-Gasteiz, Spain</a>
-              <h2 class="profile-element"><i class="octicon octicon-calendar"></i>Joined November 2012</h2>
-              <button class="btn btn-search-bar tweet-to-btn">Tweet to Jon Vadillo</button>
-              <a class="profile-element profile-website" hrerf=""><i class="octicon octicon-file-media"></i>1,142 Photos and videos</a>
-              <div class="pic-grid">
-                <!-- Image grid -->
-                <div class="row">
-                  <div class="col pic-col"><img src="https://pbs.twimg.com/media/DFCq7iTXkAADXE-.jpg:thumb" height="73px" class=""></div>
-                  <div class="col pic-col"><img src="https://pbs.twimg.com/media/DEoQ0vyXoBA1cwQ.png:thumb" height="73px" class=""></div>
-                  <div class="col pic-col"><img src="https://pbs.twimg.com/media/DDVbW4RXsAAasuw.jpg:thumb" height="73px" class=""></div>
-                </div>
-                <!-- End: row -->
-                <div class="row">
-                  <div class="col pic-col"><img src="https://pbs.twimg.com/media/DFCq7iTXkAADXE-.jpg:thumb" height="73px" class=""></div>
-                  <div class="col pic-col"><img src="https://pbs.twimg.com/media/DEoQ0vyXoBA1cwQ.png:thumb" height="73px" class=""></div>
-                  <div class="col pic-col"><img src="https://pbs.twimg.com/media/DDVbW4RXsAAasuw.jpg:thumb" height="73px" class=""></div>
-                </div>
-                <!-- End: row -->
+              <div>
+                <h3 class="profile-fullname">
+                  <a>Enzo Portales<a>
+                </h3>
+                <h2 class="profile-element">
+                  <a>@enzo_portales</a>
+                </h2>
+                <a class="profile-element profile-website" href="https://github.com/Heinzoo">
+                  <i class="bi bi-github fs-5 me-1 text-dark"></i>github.com/Heinzoo
+                </a>
+                <a class="profile-element profile-website" href="#">
+                  <i class="bi bi-geo-alt fs-5 me-1 text-secondary"></i>Viña del Mar, Chile
+                </a>
+                <h2 class="profile-element">
+                  <i class="bi bi-calendar3 fs-5 me-1 text-secondary"></i>
+                  Se unió en Noviembre del 2012
+                </h2>
+                <%= link_to "Tweet to Enzo Portales", new_tweet_path, class: "btn tweet-to-btn btn-info rounded-pill fw-semibold text-white" %>
+                <a class="profile-element profile-website mb-2" hrerf="#">
+                  <i class="bi bi-file-earmark-image fs-5 me-1"></i><%=rand(100..500)%> Fotos y Vídeos
+                </a>
               </div>
-              <!-- End: image grid -->
+              <div class="pic-grid">
+                <% for i in 0..2 do %>
+                  <div class="row">
+                    <% for j in 0..2 do %>
+                      <div class="col p-0 my-2">
+                        <img src=<%="https://picsum.photos/id/#{rand(10..1000)}/75"%> alt="">
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
           <!-- End; Left column -->
           <!-- Center content column -->
-          <div class="col-6">
+          <div class="col-6 bg-body-secondary">
             <nav class="navbar profile-stats">
               <div class="container">
                 <div class="row">
@@ -106,25 +105,25 @@
                     <li class="profile-stats-item-active">
                       <a>
                         <span class="profile-stats-item profile-stats-item-label">Tweets</span>
-                        <span class="profile-stats-item profile-stats-item-number">51</span>
+                        <span class="profile-stats-item profile-stats-item-number"><%=rand(10..500)%></span>
                       </a>
                     </li>
                     <li>
                       <a>
-                        <span class="profile-stats-item profile-stats-item-label">Following</span>
-                        <span class="profile-stats-item profile-stats-item-number">420</span>
+                        <span class="profile-stats-item profile-stats-item-label">Siguiendo</span>
+                        <span class="profile-stats-item profile-stats-item-number"><%=rand(10..500)%></span>
                       </a>
                     </li>
                     <li>
                       <a>
-                        <span class="profile-stats-item profile-stats-item-label">Followers</span>
-                        <span class="profile-stats-item profile-stats-item-number">583</span>
+                        <span class="profile-stats-item profile-stats-item-label">Seguidores</span>
+                        <span class="profile-stats-item profile-stats-item-number"><%=rand(10..500)%></span>
                       </a>
                     </li>
                     <li>
                       <a>
                         <span class="profile-stats-item profile-stats-item-label">Likes</span>
-                        <span class="profile-stats-item profile-stats-item-number">241</span>
+                        <span class="profile-stats-item profile-stats-item-number"><%=rand(10..500)%></span>
                       </a>
                     </li>
                   </ul>
@@ -137,51 +136,32 @@
           <div class="col right-col">
             <div class="content-panel">
               <div class="panel-header">
-                <h4>Who to follow</h4><small><a href="">Refresh</a></small><small><a href="">View all</a></small>
+                <h4>Sugerencias</h4>
               </div>
               <!-- Who to Follow panel -->
               <div class="panel-content">
                 <!--Follow list -->
                 <ol class="tweet-list">
-                  <li class="tweet-card">
-                    <div class="tweet-content">
-                      <img class="tweet-card-avatar" src="https://pbs.twimg.com/profile_images/679974972278849537/bzzb-6H4_bigger.jpg" alt="">
-                      <div class="tweet-header">
-                        <span class="fullname">
-                      <strong>Jon Vadillo</strong>
-                    </span>
-                        <span class="username">@JonVadillo</span>
+                  <% for i in 5..10 do %>
+                    <li class="tweet-card">
+                      <div class="row">
+                        <div class="col-4 p-0 m-0">
+                          <img class="img-fluid rounded-circle" src=<%="https://picsum.photos/id/#{rand(10..1000)}/100"%> alt="">
+                        </div>
+                        <div class="col-8">
+                          <p class="fw-bold my-1">
+                            <%=Faker::Name.first_name%> <%=Faker::Name.last_name%>
+                          </p>
+                          <p class="mt-1 mb-2">
+                            @<%=Faker::Twitter.screen_name%>
+                          </p>
+                          <button class="btn btn-sm border-info rounded-pill fw-semibold text-info px-3">
+                            Seguir
+                          </button>
+                        </div>
                       </div>
-  
-                      <button class="btn btn-follow">Follow</button>
-                    </div>
-                  </li>
-                  <li class="tweet-card">
-                    <div class="tweet-content">
-                      <img class="tweet-card-avatar" src="https://pbs.twimg.com/profile_images/679974972278849537/bzzb-6H4_bigger.jpg" alt="">
-                      <div class="tweet-header">
-                        <span class="fullname">
-                      <strong>Jon Vadillo</strong>
-                    </span>
-                        <span class="username">@JonVadillo</span>
-                      </div>
-  
-                      <button class="btn btn-follow">Follow</button>
-                    </div>
-                  </li>
-                  <li class="tweet-card">
-                    <div class="tweet-content">
-                      <img class="tweet-card-avatar" src="https://pbs.twimg.com/profile_images/679974972278849537/bzzb-6H4_bigger.jpg" alt="">
-                      <div class="tweet-header">
-                        <span class="fullname">
-                      <strong>Jon Vadillo</strong>
-                    </span>
-                        <span class="username">@JonVadillo</span>
-                      </div>
-  
-                      <button class="btn btn-follow">Follow</button>
-                    </div>
-                  </li>
+                    </li>
+                  <% end %>
                 </ol>
                 <!--END: Follow list -->
               </div>

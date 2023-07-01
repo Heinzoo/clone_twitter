@@ -1,27 +1,41 @@
-<%= form_with(model: tweet) do |form| %>
-  <% if tweet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+<div class="tweet-card p-3 mt-3">
+  <%= form_with(model: tweet) do |form| %>
+    <% if tweet.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+        <ul>
+          <% tweet.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% tweet.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+    <div class="row row-cols-auto align-items-center mb-3"> 
+      <div class="col-9">
+        <div class="input-group">
+          <%= form.label :username, "@", class: "input-group-text" %>
+          <%= form.text_field :username, placeholder: "Nombre de Usuario", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-1 px-0" style="width: 35px">
+        <%= link_to tweets_path do %>
+          <i class="bi bi-arrow-return-left text-secondary fs-5"></i>
         <% end %>
-      </ul>
+      </div>
+
+      <div class="col-2 px-0">
+        <% if action_name == "new" %>
+          <%= form.submit "Twittear", class: "btn btn-info rounded-pill fw-semibold text-white" %>
+        <% else %>
+          <%= form.submit "Actualizar", class: "btn btn-info rounded-pill fw-semibold text-white" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="input-group">
+      <%= form.label :description, "Descripción", class: "input-group-text" %>
+      <%= form.text_area :description, class: "form-control" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
