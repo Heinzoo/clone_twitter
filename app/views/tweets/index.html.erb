@@ -7,16 +7,23 @@
   </div>
 </div>
 
-<form class="d-flex py-2" role="search">
+<%= form_with url: tweets_path, method: :get, class: "d-flex py-2" do |form| %>
   <div class="input-group me-3">
-    <input class="form-control rounded-start-pill" type="search" placeholder="Buscar Tweet" aria-label="Search" aria-describedby="basic-addon1">
-    <span class="input-group-text rounded-end-pill" id="basic-addon1"><i class="bi bi-search"></i></span>
+    <%= form.text_field :query_text, class: "form-control rounded-start-pill", aria_describedby:"search_basic",
+      placeholder: ('Buscar Tweet'), value: params[:query_text] %>
+    <span class="input-group-text rounded-end-pill" id="search_basic"><i class="bi bi-search"></i></span>
   </div>
   <%= link_to "Twittear", new_tweet_path, class: "btn btn-info rounded-pill fw-semibold text-white" %>
-</form>  
+<%end%>
 
 <div id="tweets">
   <% @tweets.each do |tweet| %>
     <%= render tweet %>
   <% end %>
+</div>
+
+<div class="pt-3">
+  <%= will_paginate @tweets, list_classes: %w(pagination justify-content-center),
+    previous_label: '&laquo;', next_label: '&raquo;', 
+    renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>
